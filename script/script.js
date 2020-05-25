@@ -48,12 +48,12 @@ let possibleLevels = {
 	},
 	3: {
 		scorePerLine: 20,
-		speed: 200,
+		speed: 250,
 		nextLevelScore: 1500,
 	},
 	4: {
 		scorePerLine: 30,
-		speed: 100,
+		speed: 200,
 		nextLevelScore: 2000,
 	},
 	5: {
@@ -350,10 +350,12 @@ pauseBtn.addEventListener('click', (e) => {
 });
 
 startBtn.addEventListener('click', (e) => {
-	debugger;
+	// debugger;
 	e.target.innerHTML = 'Start again';
 	isPaused = false;
-	gameTimerID = setTimeout(startGame, possibleLevels[currentLevel].speed);
+	clearTimeout(gameTimerID);
+	startGame();
+	// gameTimerID = setTimeout(startGame, possibleLevels[currentLevel].speed);
 	gameover.style.display = 'none';
 })
 
